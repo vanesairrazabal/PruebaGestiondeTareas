@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class GestionTareas {
+public class GestorTareas {
 
     List<Tarea> tareas;
 
@@ -22,13 +22,21 @@ public class GestionTareas {
                 return tarea;
             }
         }
-        
+
         return null;
     }
-    public void cambiarElEstadoDeUnaTarea(){
+    public void cambiarElEstadoDeUnaTarea(String estado){
+         estado = "pendiente";
+        if(!estado.equals("pendiente")){
+            estado = "en proceso";
+        } else if (estado != "en proceso")
+            estado = "Completada";
+
+        }
 
     }
 
 
 
-}
+
+
