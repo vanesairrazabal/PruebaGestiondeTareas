@@ -1,10 +1,10 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class Categoria {
+
     List<Tarea> tareas;
     String nombre;
-
-
 
     public String getNombre() {
         return nombre;
@@ -21,8 +21,10 @@ public class Categoria {
         this.tareas = tareas;
     }
 
+    public Categoria(){};
+
     public Categoria(String nombre) {
         this.nombre = nombre;
+        this.tareas = new ArrayList<Tarea>();
     }
-
 }
