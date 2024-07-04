@@ -16,4 +16,14 @@ public class GestorCategorias {
         }
         return null;
     }
+
+    public void asignarTareaACategoria(String titulo, String nombre){
+        GestorTareas gestorTareas = new GestorTareas();
+        Tarea tareaEncontrada = gestorTareas.buscarUnaTareaPorTitulo(titulo);
+        Categoria categoriaEncontrada = buscarCategoriaPorNombre(nombre);
+
+        if(categoriaEncontrada.getTareas().stream().noneMatch(t -> t.getTitulo().equals(titulo))) {
+            categoriaEncontrada.getTareas().add(tareaEncontrada);
+        }
+    }
 }
