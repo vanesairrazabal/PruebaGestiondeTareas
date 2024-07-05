@@ -25,6 +25,14 @@ public class Categoria {
 
     public Categoria(String nombre) {
         this.nombre = nombre;
-        this.tareas = new ArrayList<Tarea>();
+        this.tareas = new ArrayList< Tarea>();
+    }
+
+    @Override
+    public String toString() {
+        return "Categoria{" +
+                "tareas=" + tareas +
+                ", nombre='" + nombre + '\'' +
+                '}';
     }
 }

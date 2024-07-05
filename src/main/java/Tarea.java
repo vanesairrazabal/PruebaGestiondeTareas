@@ -1,9 +1,10 @@
+import java.util.Date;
 import java.util.Scanner;
 
 public class Tarea {
     String titulo;
     String descripcion;
-    int fechaDeVencimiento;
+    Date fechaDeVencimiento;
     String estado; //pendiente, en progreso, completada
 
     public String getTitulo() {
@@ -22,11 +23,11 @@ public class Tarea {
         this.descripcion = descripcion;
     }
 
-    public int getFechaDeVencimiento() {
+    public Date getFechaDeVencimiento() {
         return fechaDeVencimiento;
     }
 
-    public void setFechaDeVencimiento(int fechaDeVencimiento) {
+    public void setFechaDeVencimiento(Date fechaDeVencimiento) {
         this.fechaDeVencimiento = fechaDeVencimiento;
     }
 
@@ -41,10 +42,20 @@ public class Tarea {
     public Tarea() {
     }
 
-    public Tarea(String titulo, String descripcion, int fechaDeVencimiento, String estado) {
+    public Tarea(String titulo, String descripcion, Date fechaDeVencimiento, String estado) {
         this.titulo = titulo;
         this.descripcion = descripcion;
         this.fechaDeVencimiento = fechaDeVencimiento;
         this.estado = estado;
+    }
+
+    @Override
+    public String toString() {
+        return "Tarea{" +
+                "titulo='" + titulo + '\'' +
+                ", descripcion='" + descripcion + '\'' +
+                ", fechaDeVencimiento=" + fechaDeVencimiento +
+                ", estado='" + estado + '\'' +
+                '}';
     }
 }

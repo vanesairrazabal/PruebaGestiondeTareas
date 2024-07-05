@@ -5,7 +5,7 @@ public class GestorTareas {
 
     List<Tarea> tareas;
 
-    public void GestiondeTareas() {
+    public GestorTareas() {
         tareas = new ArrayList<>();
     }
 
@@ -20,6 +20,7 @@ public class GestorTareas {
     public Tarea buscarUnaTareaPorTitulo(String titulo) {
         for (Tarea tarea : tareas) {
             if (tarea.getTitulo().equals(titulo)) {
+                System.out.println(tarea);
                 return tarea;
             }
         }

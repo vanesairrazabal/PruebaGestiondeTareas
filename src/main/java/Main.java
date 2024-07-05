@@ -1,3 +1,6 @@
+import java.text.ParsePosition;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
@@ -32,12 +35,14 @@ public class Main {
             switch (opcionUsuario) {
                 case 1:
                     gestorTareas.agregarUnaNuevaTarea(crearTarea());
+                    System.out.println("Se ha creado con exito \n");
                     break;
                 case 2:
                     gestorTareas.eliminarUnaTareaExistente(pedirTituloTarea());
+                    System.out.println("Su tarea ha sido eliminada con exito");
                     break;
                 case 3:
-                    gestorTareas.buscarUnaTareaPorTitulo(pedirTituloTarea());
+                    System.out.println(gestorTareas.buscarUnaTareaPorTitulo(pedirTituloTarea()).toString());
                     break;
                 case 4:
                     gestorTareas.cambiarElEstadoDeUnaTarea(pedirTituloTarea(), pedirEstadoTarea());
@@ -49,7 +54,7 @@ public class Main {
                     gestorCategorias.agregarCategoria(crearCategoria());
                     break;
                 case 7:
-                    gestorCategorias.asignarTareaACategoria(pedirTituloTarea(), pedirNombreCategoria());
+
                     break;
                 case 8:
                     System.out.println(gestorCategorias.buscarCategoriaPorNombre(pedirNombreCategoria()).getTareas().toString());
@@ -66,8 +71,10 @@ public class Main {
         String titulo = scanner.next();
         System.out.println("INGRESE LA DESCRIPCION");
         String descripcion = scanner.next();
-        System.out.println("INGRESE LA FECHA DE VENCIMIENTO");
-        int fechaDeVencimiento = scanner.nextInt();
+        System.out.println("INGRESE LA FECHA DE VENCIMIENTO (DD/MM/AAAA)");
+        String fechaTexto = scanner.next();
+        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+        Date fechaDeVencimiento = format.parse(fechaTexto, new ParsePosition(0));
         System.out.println("INGRESE EL ESTADO EN EL QUE SE ENCUENTRA LA TAREA");
         String estado = scanner.next();
         return new Tarea(titulo, descripcion, fechaDeVencimiento, estado);
