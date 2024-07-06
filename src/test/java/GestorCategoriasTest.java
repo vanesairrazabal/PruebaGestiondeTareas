@@ -39,9 +39,8 @@ class GestorCategoriasTest {
 
     @Test
     void asignarTareaACategoria() {
-        Categoria categoriaEncontrada = gestorCategorias.buscarCategoriaPorNombre(nombreCategoria);
-
-
+        gestorTareas.agregarUnaNuevaTarea(tarea);
+        gestorCategorias.agregarCategoria(categoria);
         assertTrue(gestorCategorias.asignarTareaACategoria(tituloTarea, nombreCategoria, gestorTareas));
         assertFalse(gestorCategorias.asignarTareaACategoria("Xyz", "abc", gestorTareas));
     }

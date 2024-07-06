@@ -36,7 +36,6 @@ public class GestorTareas {
     }
 
     public boolean cambiarElEstadoDeUnaTarea(String tituloTarea, String estado) {
-        //buscarUnaTareaPorTitulo(tituloTarea).setEstado(estado);
         for (Tarea tarea : tareas) {
             if (tarea.getTitulo().equals(tituloTarea)) {
                 tarea.setEstado(estado);
