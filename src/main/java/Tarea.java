@@ -42,6 +42,10 @@ public class Tarea {
     public Tarea() {
     }
 
+    public Tarea(String titulo) {
+        this.titulo = titulo;
+    }
+
     public Tarea(String titulo, String descripcion, Date fechaDeVencimiento, String estado) {
         this.titulo = titulo;
         this.descripcion = descripcion;

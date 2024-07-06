@@ -34,7 +34,7 @@ public class Main {
             opcionUsuario = scanner.nextInt();
             switch (opcionUsuario) {
                 case 1:
-                    gestorTareas.agregarUnaNuevaTarea(crearTarea());;
+                    gestorTareas.agregarUnaNuevaTarea(crearTarea());
                     break;
                 case 2:
                     gestorTareas.eliminarUnaTareaExistente(pedirTituloTarea());
