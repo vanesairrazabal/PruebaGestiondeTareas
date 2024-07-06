@@ -11,27 +11,33 @@ public class GestorTareas {
 
     public void agregarUnaNuevaTarea(Tarea tarea) {
         tareas.add(tarea);
+        System.out.println("Se ha agregado correctamente la tarea");
+        //System.out.println(tareas);
     }
 
     public void eliminarUnaTareaExistente(String titulo) {
-        tareas.removeIf(t -> t.getTitulo().equals(titulo));
+        if(tareas.removeIf(t -> t.getTitulo().equals(titulo)))
+            System.out.println("Se ha eliminado correctamente la tarea");
+        //System.out.println(tareas);
     }
 
     public Tarea buscarUnaTareaPorTitulo(String titulo) {
         for (Tarea tarea : tareas) {
             if (tarea.getTitulo().equals(titulo)) {
-                System.out.println(tarea);
+                //System.out.println(tarea);
                 return tarea;
             }
         }
-
         return null;
     }
 
     public void cambiarElEstadoDeUnaTarea(String tituloTarea, String estado) {
-        /*Tarea tareaEncontrada = buscarUnaTareaPorTitulo(tituloTarea);
-        tareaEncontrada.setEstado(estado);*/
-        buscarUnaTareaPorTitulo(tituloTarea).setEstado(estado);
+        //buscarUnaTareaPorTitulo(tituloTarea).setEstado(estado);
+        for (Tarea tarea : tareas) {
+            if (tarea.getTitulo().equals(tituloTarea)) {
+                tarea.setEstado(estado);
+            }
+        }
     }
 }
 

@@ -1,7 +1,7 @@
 import java.util.Date;
-import java.util.Scanner;
 
 public class Tarea {
+
     String titulo;
     String descripcion;
     Date fechaDeVencimiento;

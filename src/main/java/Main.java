@@ -34,12 +34,10 @@ public class Main {
             opcionUsuario = scanner.nextInt();
             switch (opcionUsuario) {
                 case 1:
-                    gestorTareas.agregarUnaNuevaTarea(crearTarea());
-                    System.out.println("Se ha creado con exito \n");
+                    gestorTareas.agregarUnaNuevaTarea(crearTarea());;
                     break;
                 case 2:
                     gestorTareas.eliminarUnaTareaExistente(pedirTituloTarea());
-                    System.out.println("Su tarea ha sido eliminada con exito");
                     break;
                 case 3:
                     System.out.println(gestorTareas.buscarUnaTareaPorTitulo(pedirTituloTarea()).toString());
@@ -48,13 +46,13 @@ public class Main {
                     gestorTareas.cambiarElEstadoDeUnaTarea(pedirTituloTarea(), pedirEstadoTarea());
                     break;
                 case 5:
-                    gestorCategorias.buscarCategoriaPorNombre(pedirNombreCategoria());
+                    System.out.println(gestorCategorias.buscarCategoriaPorNombre(pedirNombreCategoria()).toString());
                     break;
                 case 6:
                     gestorCategorias.agregarCategoria(crearCategoria());
                     break;
                 case 7:
-
+                    gestorCategorias.asignarTareaACategoria(pedirTituloTarea(), pedirNombreCategoria(), gestorTareas);
                     break;
                 case 8:
                     System.out.println(gestorCategorias.buscarCategoriaPorNombre(pedirNombreCategoria()).getTareas().toString());
@@ -75,29 +73,30 @@ public class Main {
         String fechaTexto = scanner.next();
         SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
         Date fechaDeVencimiento = format.parse(fechaTexto, new ParsePosition(0));
-        System.out.println("INGRESE EL ESTADO EN EL QUE SE ENCUENTRA LA TAREA");
-        String estado = scanner.next();
-        return new Tarea(titulo, descripcion, fechaDeVencimiento, estado);
+        System.out.println("INGRESE EL ESTADO EN EL QUE SE ENCUENTRA LA TAREA (1-Pendiente, 2-En Proceso, 3-Completada)");
+        int estado = scanner.nextInt();
+        return new Tarea(titulo, descripcion, fechaDeVencimiento, estado == 1 ? "Pendiente" : estado == 2 ? "En Proceso" : "Completada");
     }
 
-    public static Categoria crearCategoria(){
+    public static Categoria crearCategoria() {
         System.out.println("INGRESE EL NOMBRE DE LA CATEGORIA");
         String nombre = scanner.next();
         return new Categoria(nombre);
     }
 
-    public static String pedirTituloTarea(){
+    public static String pedirTituloTarea() {
         System.out.println("INGRESE EL TITULO");
         return scanner.next();
     }
 
-    public static String pedirNombreCategoria(){
+    public static String pedirNombreCategoria() {
         System.out.println("INGRESE EL NOMBRE DE LA CATEGORIA");
         return scanner.next();
     }
 
-    public static String pedirEstadoTarea(){
-        System.out.println("INGRESE EL ESTADO EN EL QUE SE ENCUENTRA LA TAREA");
-        return scanner.next();
+    public static String pedirEstadoTarea() {
+        System.out.println("INGRESE EL ESTADO EN EL QUE SE ENCUENTRA LA TAREA (1-Pendiente, 2-En Proceso, 3-Completada)");
+        int estado = scanner.nextInt();
+        return estado == 1 ? "Pendiente" : estado == 2 ? "En Proceso" : "Completada";
     }
 }
